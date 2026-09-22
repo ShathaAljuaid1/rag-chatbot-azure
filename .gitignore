@@ -1,0 +1,21 @@
+# Environment variables / secrets
+.env
+**/.env
+
+# Terraform sensitive/local files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+
+# SSH private/public keys
+terraform/ssh-keys/
+
+# Python
+__pycache__/
+*.pyc
+
+# App generated data
+chat_logs/
+pdf_store/
