@@ -7,10 +7,8 @@ services:
     volumes:
       - chromadb_data:/chroma/chroma
 
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
+ backend:
+    image: ${DOCKERHUB_NAMESPACE}/rag-backend:latest
     restart: unless-stopped
     env_file:
       - .env
@@ -29,10 +27,8 @@ services:
       - ./chat_logs:/app/chat_logs
       - ./pdf_store:/app/pdf_store
 
-  chatbot:
-    build:
-      context: .
-      dockerfile: Dockerfile.chatbot
+chatbot:
+  image: ${DOCKERHUB_NAMESPACE}/rag-chatbot:latest
     restart: unless-stopped
     environment:
       BACKEND_URL: http://backend:5000
